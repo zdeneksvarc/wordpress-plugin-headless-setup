@@ -30,12 +30,12 @@ All features are **enabled by default** and can be configured in **Settings > He
 
 ### 🔒 Protected Endpoints
 
-Once activated, the following endpoints will return HTTP 401 or 403 unless the user is authenticated:
+Once activated, the following endpoints will return HTTP 403 or 401 unless the user is authenticated:
 
 - `/` (homepage)
 - `/wp-json`
 - `/graphql`
-- `/xmlrpc.php`
+- `/xmlrpc`
 
 WordPress admin will remain accessible at:
 
