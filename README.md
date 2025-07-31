@@ -9,9 +9,7 @@ This WordPress plugin enforces headless mode and protects key API endpoints. It 
 - **Protect REST API** – requires authentication for `/wp-json` requests.
 - **Protect GraphQL** – requires authentication for `/graphql` requests.
 
-All features are **enabled by default** and can be configured in:
-
-> **Settings > Headless Setup**
+All features are **enabled by default** and can be configured in **Settings > Headless Setup**
 
 ---
 
