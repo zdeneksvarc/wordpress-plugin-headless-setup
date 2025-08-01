@@ -11,6 +11,8 @@ This WordPress plugin enforces headless mode and protects key API endpoints. It 
 
 All features are **enabled by default** and can be configured in **Settings > Headless Setup**
 
+Functionality can be verified with `check-wp-endpoints.sh` script.
+
 ---
 
 ### 🔧 Requirements
