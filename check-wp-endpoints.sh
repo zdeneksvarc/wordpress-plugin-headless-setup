@@ -13,9 +13,10 @@ if [[ ! $BASE_URL =~ ^https?:// ]]; then
   echo "(Auto-corrected to: $BASE_URL)"
 fi
 
-echo ""
 echo "Checking WordPress endpoints for $BASE_URL"
-echo "---"
+echo ""
+echo "Endpoint       Response Status Code (401 or 403 are ok)"
+echo "-------------------------------------------------------"
 
 CURL_OPTS=( --silent --output /dev/null --write-out "%{http_code}" )
 
@@ -43,12 +44,10 @@ check_code() {
   cmd+=( "$url" )
 
   status=$("${cmd[@]}")
-  printf "%-10s : %s\n" "$name" "$status"
+  printf "%-12s   %s\n" "$name" "$status"
 }
 
 check_code "/"        "$BASE_URL/" "GET" "" ""
-check_code "REST API" "$BASE_URL/wp-json/wp/v2/posts" "GET" "" ""
-check_code "GraphQL"  "$BASE_URL/graphql" "POST" "Content-Type: application/json" \
-  '{"query":"{ posts { nodes { title } } }"}'
-check_code "XML-RPC"  "$BASE_URL/xmlrpc.php" "POST" "Content-Type: text/xml" \
-  '<?xml version="1.0"?><methodCall><methodName>demo.sayHello</methodName></methodCall>'
+check_code "REST API" "$BASE_URL/wp-json" "GET" "" ""
+check_code "GraphQL"  "$BASE_URL/graphql" "POST" "" ""
+check_code "XML-RPC"  "$BASE_URL/xmlrpc.php" "POST" "" ""
